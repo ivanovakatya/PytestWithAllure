@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+pip freeze > requirements.txt
+
+echo "Your dependencies are now saved in 'requirements.txt'! :)"
+echo "Please review this file before commiting to git ... "
+
