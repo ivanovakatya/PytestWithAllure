@@ -8,3 +8,4 @@ python3 -m venv venv
 echo "Your virtual environment is now setup! :)"
 echo "To activate the virtual env please execute the following: 'source venv/bin/activate'"
 
+fasle comment
