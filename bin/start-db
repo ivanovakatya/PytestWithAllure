@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+echo "Sqlite3 database has now started..."
+echo "to exit sqlite3 database type: '.exit' "
+
+sqlite3 database/db.sqlite3
