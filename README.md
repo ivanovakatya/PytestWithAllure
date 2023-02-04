@@ -29,6 +29,7 @@ If you have installed a new dependency for example let's say we are trying to in
 
 ```bash 
 pip install requests
+pip install fastapi hypercorn
 ```
 
 Then please be sure to save your dependencies by running the following before committing to git:
