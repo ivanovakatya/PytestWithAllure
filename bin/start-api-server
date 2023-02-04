@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd api
+uvicorn fast_api:app --reload
