@@ -70,3 +70,8 @@ To exit the database, execute the following:
 ```bash
 .exit
 ```
+
+## Additional notes
+
+You should always have an __init__.py in every folder for your API because you might later want to import this as a module
+for you pytest project. 
