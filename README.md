@@ -36,6 +36,8 @@ pip install tortoise-orm
 pip install passlib
 pip install bcrypt
 pip install PyJWT
+pip install Faker
+pip install jsonpath
 ```
 
 Then please be sure to save your dependencies by running the following before committing to git:
