@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-# pytest -s -v . <- that does not work????  
-python -m python -m pytest -s -v .
+# pytest -s -v . <- that does not work???? 
+PYTHONPATH="$PWD/api" 
+python -m pytest -s -v .
