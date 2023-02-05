@@ -6,7 +6,6 @@ from tortoise.contrib.fastapi import register_tortoise
 from tortoise.contrib.pydantic import pydantic_model_creator
 from models.user_model import User
 
-
 app = FastAPI()
 
 JWT_SECRET = 'myjwtsecret'

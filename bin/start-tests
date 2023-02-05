@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# pytest -s -v . <- that does not work????  
+python -m python -m pytest -s -v .

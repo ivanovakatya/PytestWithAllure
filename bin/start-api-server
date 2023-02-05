@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
 
+# find . -type d -name '*' \
+#     -not -path "./.git*" \
+#     -not -path "./venv*" \
+#     -not -path "./bin*" \
+#     -not -path "./*_pycache_*" \
+#     -not -path "./.pytest_*" | xargs -I {} sh -c "mkinit {} > {}/__init__.py"
+
 cd api
 uvicorn fast_api:app --reload

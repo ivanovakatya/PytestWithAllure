@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
-deactivate || true
+deactivate > /dev/null 2>&1 || true 
+rm -rf venv
+python3 -m venv venv
+source venv/bin/activate # This does not go back to your terminal! You will have to run it again ... 
 python -m pip install --upgrade pip
-touch requirements.txt
 pip install -r requirements.txt
+
+echo "Your virtual environment is now setup! :)"
+echo "1. To activate the virtual env please execute the following: 'source venv/bin/activate'"
+echo "2. If later you want to deactive simply run 'deactivate' from your terminal"
 
 echo "Your project is now setup! :)"
