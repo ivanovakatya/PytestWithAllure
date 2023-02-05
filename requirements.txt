@@ -17,7 +17,6 @@ idna==3.4
 iniconfig==2.0.0
 iso8601==1.1.0
 jsonpath==0.82
-mkinit==1.0.0
 packaging==23.0
 passlib==1.7.4
 pluggy==1.0.0
