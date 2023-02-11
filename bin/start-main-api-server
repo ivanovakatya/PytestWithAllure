@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd api
+uvicorn main:app --reload
