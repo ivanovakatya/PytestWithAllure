@@ -1,4 +1,5 @@
 {
-    "username": "test100",
-    "password_hash": "test100"
+    "name": "Kate",
+    "description": "QA engineer",
+    "price": 10010
 }
