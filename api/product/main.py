@@ -4,7 +4,7 @@ from .import models
 from .database import engine, SessionLocal, get_db
 from typing import List
 from passlib.context import CryptContext
-from .routers import product
+from .routers import product, seller
 
 
 
@@ -26,22 +26,6 @@ app = FastAPI(
     # redoc_url = None
 )
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated='auto')
-
 models.Base.metadata.create_all(engine)
 
-app.include_router(product.router)
-
-
-
-
-@app.post('/seller', response_model=schemas.DisplaySeller, tags=['Sellers'])
-def create_seller(request: schemas.Seller, db:SessionLocal = Depends(get_db)):
-    hash_password = pwd_context.hash(request.password)
-    new_seller = models.Seller(
-        username = request.username, email = request.email, password = hash_password
-    )
-    db.add(new_seller)
-    db.commit()
-    db.refresh(new_seller)
-    return new_seller
+app.include_router(product.router, seller.router)
