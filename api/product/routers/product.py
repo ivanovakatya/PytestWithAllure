@@ -4,23 +4,27 @@ from sqlalchemy.orm import Session
 from ..import models, schemas
 from typing import List
 
-router = APIRouter()
+router = APIRouter(
+    tags=['Products']
+    # to prefix the routes, the below prefix code could be used
+    # prefix='/product'
+    )
 
 
 
-@router.delete('/product/{id}', tags=['Products'])
+@router.delete('/product/{id}')
 def delete(id, db: Session = Depends(get_db)):
     product = db.query(models.Product).filter(models.Product.id == id).delete(synchronize_session=False)
     db.commit()
     return{"Product is deleted"}
 
 
-@router.get('/products', response_model=List[schemas.DisplayProduct], tags=['Products'])
+@router.get('/products', response_model=List[schemas.DisplayProduct])
 def getproducts(db: Session = Depends(get_db)):
     products = db.query(models.Product).all()
     return products
 
-@router.get('/product/{id}', response_model=schemas.DisplayProduct, tags=['Products'])
+@router.get('/product/{id}', response_model=schemas.DisplayProduct)
 def product(id, db: Session = Depends(get_db)):
      product = db.query(models.Product).filter(models.Product.id == id).first()
      if not product:
@@ -30,7 +34,7 @@ def product(id, db: Session = Depends(get_db)):
         # return {'Product not found'}
      return product
 
-@router.put('/product/{id}', tags=['Products'])
+@router.put('/product/{id}')
 def update(id, request: schemas.Product, db: Session = Depends(get_db)):
     product = db.query(models.Product).filter(models.Product.id == id)
     if not product.first():
@@ -44,7 +48,7 @@ def update(id, request: schemas.Product, db: Session = Depends(get_db)):
 
 # @app.post('/product', status_code=status.HTTP_201_CREATED)
 @router.post('/product',response_model=schemas.DisplayProduct, 
-            status_code=status.HTTP_201_CREATED,tags=['Products'])
+            status_code=status.HTTP_201_CREATED)
 def add(request: schemas.Product, db:Session = Depends(get_db)):
     new_product = models.Product(
         name= request.name, description= request.description, price= request.price, seller_id= 1

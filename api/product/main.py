@@ -1,9 +1,6 @@
-from fastapi import FastAPI, Depends, Form, status, Response, HTTPException
-from .import schemas
+from fastapi import FastAPI
 from .import models
-from .database import engine, SessionLocal, get_db
-from typing import List
-from passlib.context import CryptContext
+from .database import engine
 from .routers import product, seller
 
 
@@ -28,4 +25,6 @@ app = FastAPI(
 
 models.Base.metadata.create_all(engine)
 
-app.include_router(product.router, seller.router)
+app.include_router(product.router)
+
+app.include_router(seller.router)
