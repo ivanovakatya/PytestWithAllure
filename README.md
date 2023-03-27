@@ -53,20 +53,3 @@ If you forget, then this will create problems when other colleagues do a [git cl
 ```bash
 bin/start-product-api-server
 ```
-
-## To start the sqlite3 database
-
-```bash
-bin/start-db
-```
-After the database is started, the following SQL command can be run to extract the data from user table:
-
-```bash
-select * from user;
-```
-
-To exit the database, execute the following:
-
-```bash
-.exit
-```
