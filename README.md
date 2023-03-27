@@ -51,7 +51,7 @@ If you forget, then this will create problems when other colleagues do a [git cl
 ## To start the uvicorn (fastapi) server
 
 ```bash
-bin/start-api-server
+bin/start-product-api-server
 ```
 
 ## To start the sqlite3 database
