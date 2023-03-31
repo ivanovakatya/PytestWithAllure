@@ -2,13 +2,6 @@ import requests
 import json
 import pytest
 import jsonpath
-# from faker import Faker
-
-# fake = Faker()
-
-# def test_get_user_data():
-#         response = requests.get("http://127.0.0.1:8000/user/me%22)
-#         assert response.status_code == 200
 
 @pytest.fixture
 def fixture_code(scope="module"):
@@ -23,15 +16,8 @@ def test_add_new_student (fixture_code):
                 'Content-Type':"application/json; charset=utf-8"
                 }
         url = "http://127.0.0.1:8000/product"
-        request_json = json.loads(user_data.read())
-        print("Json: ", request_json)
-        # print("Json: ", user_data)
-        # request_json['username'] = "hello"
-        # request_json['password_hash'] = "hello"
-        # print (request_json['username'], request_json['password_hash'])
-        # response = requests.post(url, user_data)
 
-        response = requests.post(url, request_json, headers=headers)
+        response = requests.post(url, user_data)
 
         print("Content: ", response.content)
 
