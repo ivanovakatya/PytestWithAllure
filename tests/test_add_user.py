@@ -1,7 +1,5 @@
 import requests
-import json
 import pytest
-import jsonpath
 
 @pytest.fixture
 def fixture_code(scope="module"):
@@ -11,14 +9,9 @@ def fixture_code(scope="module"):
         user_data.close()
 
 def test_add_new_student (fixture_code):
-        headers = { 
-                'accept' : "application/json",
-                'Content-Type':"application/json; charset=utf-8"
-                }
         url = "http://127.0.0.1:8000/product"
 
         response = requests.post(url, user_data)
-
         print("Content: ", response.content)
 
         assert response.status_code == 201
