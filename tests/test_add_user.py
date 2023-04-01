@@ -1,7 +1,6 @@
 import requests
 import pytest
 
-
 @pytest.fixture
 def fixture_code(scope="module"):
         global user_data
