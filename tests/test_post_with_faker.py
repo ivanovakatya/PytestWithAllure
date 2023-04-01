@@ -5,6 +5,10 @@ from faker import Faker
 
 fake = Faker()
 
+def test_get_product():
+        url = "http://127.0.0.1:8000/products"
+        response = requests.get(url)
+        assert response.status_code == 200
 
 def test_post_with_faker_data ():
         url = "http://127.0.0.1:8000/product"
@@ -18,3 +22,17 @@ def test_post_with_faker_data ():
         response = requests.post(url, request_json)
 
         assert response.status_code == 201
+
+def test_get_product_by_last_id():
+        url = "http://127.0.0.1:8000/products"
+        response = requests.get(url)
+        json_response = json.loads(response.content)
+        response_array = []
+        for i in json_response:
+                response_array.append(i["id"])
+        last_element = response_array[- 1]
+        url_product = "http://127.0.0.1:8000/product/{}".format(last_element)
+
+        response = requests.get(url_product)
+        print(response.text)
+        assert response.status_code == 200
