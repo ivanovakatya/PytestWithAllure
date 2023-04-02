@@ -18,7 +18,7 @@ def test_post_with_faker_data ():
                 "price": fake.random_int(0, 20)
         }
         
-        request_json =json.dumps(user_data)
+        request_json = json.dumps(user_data)
         response = requests.post(url, request_json)
 
         json_response = json.loads(response.content)
