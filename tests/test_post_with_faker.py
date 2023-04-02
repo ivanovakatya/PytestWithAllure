@@ -21,6 +21,11 @@ def test_post_with_faker_data ():
         request_json =json.dumps(user_data)
         response = requests.post(url, request_json)
 
+        json_response = json.loads(response.content)
+       
+        assert json_response["name"] == user_data["name"]
+        assert json_response["description"] == user_data["description"]
+        assert json_response["price"] == user_data["price"]
         assert response.status_code == 201
 
 def test_get_product_by_last_id():
@@ -34,5 +39,5 @@ def test_get_product_by_last_id():
         url_product = "http://127.0.0.1:8000/product/{}".format(last_element)
 
         response = requests.get(url_product)
-        print(response.text)
+       
         assert response.status_code == 200
