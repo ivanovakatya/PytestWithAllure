@@ -5,7 +5,7 @@ from faker import Faker
 
 fake = Faker()
 
-def test_get_product():
+def test_get_all_products():
         url = "http://127.0.0.1:8000/products"
         response = requests.get(url)
         assert response.status_code == 200
