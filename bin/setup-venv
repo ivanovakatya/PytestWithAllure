@@ -6,4 +6,4 @@ python3 -m venv venv
 
 echo "Your virtual environment is now setup! :)"
 echo "1. To activate the virtual env please execute the following: 'source venv/bin/activate'"
-echo "2. To set up the project please execute the following: 'bin/setup-project"
+echo "2. To set up the project please execute the following: 'bin/setup-project'"
